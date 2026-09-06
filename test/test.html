@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+
+    <body>
+        <h1 align="center">That's test</h1>
+        <div class="Button_inside">
+            <button id="test_button1" class="test_button">
+                Button
+            </button>
+        </div>
+        <div class="Button_inside">
+            <button id="test_button2" class="test_button">
+                Button
+            </button>
+        </div>
+        <div class="Button_inside">
+            <button id="test_button3" class="test_button">
+                Button
+            </button>
+        </div>
+    </body>
+
+    <style>
+        h1  {
+            font: "New Times Roman";
+        }
+        .Button_inside{
+            width: 100%;
+        }
+        .test_button{
+            background:rgb(255, 255, 255);
+            border: 2px solid rgba(0,0,0,0.2);
+            border-radius: 0 10px 10px 0;
+            width: 75%;
+            margin-left: 10px;
+            font: "New Times Roman";
+            font-size: 25px;
+            text-align: left;
+        }
+        .test_button:hover{
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+            transform: translate(10px,-10px);
+        }
+        .test_button.selected::before{
+            content:"V";
+        }
+    </style>
+
+    <script src=script.js></script>
+</html>
