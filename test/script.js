@@ -13,6 +13,8 @@ let questions=[
         answer:1
     },
 ];
+const link=document.getElementById("bestLink");
+link.style.display="none";
 const allButts = document.querySelectorAll('.test_button');
 allButts.forEach((button)=>{
     button.addEventListener("click", function(){
@@ -58,6 +60,10 @@ nextButt.addEventListener("click",()=>{
         AnswerButt.style.display="none";
         const question=document.getElementById("question");
         question.textContent="Result is "+corrects+" out of "+questions.length;
+        if (corrects>Number(localStorage.getItem("best"))){
+            localStorage.setItem("best",(corrects/questions.length)*100);
+        }
+        link.style.display="block";
         return;
     }
     Answer.textContent="";
