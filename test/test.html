@@ -6,6 +6,9 @@
 
     <body>
         <h1 align="center">That's test</h1>
+        <p align="center" id="question">Question</p>
+        <a align="center" id="answer"></a>
+        <br>
         <div class="Button_inside">
             <button id="test_button1" class="test_button">
                 Button
@@ -20,6 +23,10 @@
             <button id="test_button3" class="test_button">
                 Button
             </button>
+        </div>
+        <br>
+        <div class="Button_inside">
+            <button align="center" id="answer_button">Check</button>
         </div>
     </body>
 
@@ -36,8 +43,7 @@
             border-radius: 0 10px 10px 0;
             width: 75%;
             margin-left: 10px;
-            font: "New Times Roman";
-            font-size: 25px;
+            font: 25px "Times New Roman", sans-serif;
             text-align: left;
         }
         .test_button:hover{
@@ -45,7 +51,29 @@
             transform: translate(10px,-10px);
         }
         .test_button.selected::before{
-            content:"V";
+            content:"V ";
+        }
+        #answer_button{
+            background:rgb(255, 255, 255);
+            border: 2px solid rgba(0,0,0,0.2);
+            border-radius: 10px 10px 10px 10px;
+            width: 100px;
+            margin-left: 10px;
+            font: "New Times Roman";
+            font-size: 25px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+        #answer_button:hover{
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+            transform: translate(10px,-10px);
+        }
+        a {
+            font: 15px "Times New Roman", sans-serif;
+            display: block;
+            width: 100%;
+            text-align: center;
         }
     </style>
 
