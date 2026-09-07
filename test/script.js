@@ -1,5 +1,6 @@
 let questionNumber=0;
 let selectedCurrently=null;
+let corrects=0;
 let questions=[
     {
         question:"2+2?",
@@ -30,21 +31,23 @@ AnswerButt.addEventListener("click",()=>{
         return;
     }
     if (selectedCurrently._nomer==questions[questionNumber].answer){
-        Answer.textContent="Correct mf";
-        const nextButt=document.getElementById("next_button");
-        nextButt.style.display="block";
+        corrects++;
     }
-    else{
-        Answer.textContent="WrOnG";
-    }
+    nextButt.style.display="block";
 });
 const nextButt=document.getElementById("next_button");
 nextButt.addEventListener("click",()=>{
+    if (!selectedCurrently){
+        Answer.textContent="pls select";
+        return;
+    }
+    if (selectedCurrently._nomer==questions[questionNumber].answer){
+        corrects++;
+    }
     selectedCurrently=null;
     document.querySelectorAll(".test_button").forEach(button => {
         button.classList.remove("selected");
     });
-    nextButt.style.display = "none";
     questionNumber++;
     if (questionNumber >= questions.length) {
         Answer.textContent = "Test finished!";
@@ -52,6 +55,9 @@ nextButt.addEventListener("click",()=>{
             button.style.display="none";
         });
         nextButt.style.display = "none";
+        AnswerButt.style.display="none";
+        const question=document.getElementById("question");
+        question.textContent="Result is "+corrects+" out of "+questions.length;
         return;
     }
     Answer.textContent="";
