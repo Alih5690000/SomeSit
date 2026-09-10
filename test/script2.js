@@ -14,7 +14,12 @@ window.addEventListener("load",()=>{
     dd.style.top=d.offsetTop+"px";
     dd.style.left=d.offsetLeft+"px";
     const rect=d.getBoundingClientRect();
-    width=rect.width;
+    if (localStorage.getItem("best")){
+        width=rect.width*(Number(localStorage.getItem("best"))/100);
+    }
+    else{
+        width=0;
+    }
     requestAnimationFrame(loop);
 });
 var last=0;
@@ -25,6 +30,8 @@ function loop(time){
     if (50*dt>width-dd.offsetWidth){
         dd.style.width=width+"px";
     }
-    dd.style.width=Number(dd.style.width.slice(0,-2))+50*dt+"px";
+    else{
+        dd.style.width=Number(dd.style.width.slice(0,-2))+50*dt+"px";
+    }
     requestAnimationFrame(loop);
 }
